@@ -1,0 +1,22 @@
+{% extends 'nasa_api/base.html' %}
+
+{% block content %}
+<h1 align="center">NASA Photo of the day </h1>
+<p></p>
+<p align="center"><img src="{{photo}}" height="500" width="400"></p>
+<p>{{context}}</p>
+{% for date in dates %}
+<a href="{{date.get_absolute_url }}" >{{date.date}}</a>
+{% endfor %}
+<div class="div">
+    {% if previous %}
+    <p><a href="{{previous.get_absolute_url}}">{{previous.date}}</a></p>
+    {% endif %}
+    {% if previous == None %}
+    <p></p>
+    {% endif %}
+    {% if next %}
+    <p><a href="{{next.get_absolute_url}}">{{next.date}}</a></p>
+    {% endif %}
+</div>
+{% endblock %}

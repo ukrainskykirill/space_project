@@ -1,0 +1,13 @@
+{% extends 'nasa_api/base.html' %}
+
+{% block content %}
+<h1 align="center">NASA Asteroids </h1>
+<h3>Список потенциально опасных астеройдов для нашей планеты:</h3>
+{% for asteroid in asteroids %}
+<h4 align="left">{{asteroid.name}} </h4>
+<p>Диаметр: min {{asteroid.estimated_diameter_min}}; max {{asteroid.estimated_diameter_max}}</p>
+<p>Дата максимального сближения с Землей: {{asteroid.close_approach_data}}</p>
+<p>Информация об астеройде <a href={{asteroid.nasa_jpl_url}}>на сайте NASA</a></p>
+<p>---------------------</p>
+{% endfor %}
+{% endblock %}
